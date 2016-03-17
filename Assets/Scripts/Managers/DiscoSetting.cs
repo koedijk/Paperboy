@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class DiscoSetting : MonoBehaviour
 {
@@ -28,10 +29,11 @@ public class DiscoSetting : MonoBehaviour
 
 	void Start()
 	{
-		if(Application.loadedLevelName == "PlayScene")
+        
+        if (SceneManager.GetActiveScene().name == "PlayScene")
 		{
 			Global.Instance.IsDisco = IsDisco;
-			Camera.main.gameObject.audio.clip = DiscoClip;
+			Camera.main.gameObject.GetComponent<AudioSource>().clip = DiscoClip;
 		}
-	}
+    }
 }

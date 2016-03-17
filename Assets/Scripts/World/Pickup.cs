@@ -32,7 +32,6 @@ public class Pickup : BasicObstacleBehaviour
 		if(Coll.tag == "Player")
 		{
 			Coll.GetComponent<PlayerController>().SetPickup(Type);
-
 			Destroy(gameObject);
 		}
 	}

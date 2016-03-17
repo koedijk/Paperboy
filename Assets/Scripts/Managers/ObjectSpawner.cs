@@ -126,7 +126,7 @@ public class ObjectSpawner : CacheMB
 		Vector3 InitialPlusSpawnPos = InitialSpawnPos + new Vector3(X, Random.Range(0F, 6F), 0);
 		GameObject NewHouse = Spawner.Spawn((GameObject)Resources.Load("Houses/House"), InitialPlusSpawnPos, Quaternion.identity);
 
-		HouseBehaviour housie = NewHouse.GetComponent<HouseBehaviour>();
+        HouseBehaviour housie = NewHouse.GetComponent<HouseBehaviour>();
 		housie.SetRight(IsRight);
 
 		if(IsRight)
@@ -146,12 +146,12 @@ public class ObjectSpawner : CacheMB
 	{		
 		Vector3 InitialPlusSpawnPos = InitialSpawnPos + new Vector3(Random.Range(MinSpawnX, MaxSpawnX), 0, 0);
 
-		int Pickup = Random.Range(0, 4);
-		
-		GameObject NewPickup = (GameObject)Instantiate(Resources.Load("Pickups/Pickup" + Pickup), InitialPlusSpawnPos, Quaternion.identity);
-		
-		Objects.Add(NewPickup);
-	}
+        int Pickup = Random.Range(0, 4);
+
+        GameObject NewPickup = (GameObject)Instantiate(Resources.Load("Obstacles/PickUps/Pickup" +Pickup), InitialPlusSpawnPos, Quaternion.identity);
+
+        Objects.Add(NewPickup);
+    }
 
 	#region List Functions
 	private void CleanList(List<GameObject> ListToClean)

@@ -3,23 +3,43 @@ using System.Collections;
 
 public class AudioManager : MonoBehaviour
 {
-	private float WaitForNewPitchTime = 0.5F;
-	private float CurrentWaitForNewPitchTime = 0;
+    private float WaitForNewPitchTime = 0.5F;
+    private float CurrentWaitForNewPitchTime = 0;
 
-	private float NewPitch = 1;
+    private float NewPitch = 1;
+    
+    private AudioSource source;
+    public AudioClip clip1, clip2, clip3;
 
-	private AudioSource source;
 
-	void Start () 
+    void Start () 
+	{ 
+        GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("AudioVolume");
+        source = GetComponent<AudioSource>();
+    }
+
+    public AudioClip sound1()
+    {
+        return clip1;
+    }
+
+    public AudioClip sound2()
+    {
+        return clip2;
+    }
+    public AudioClip sound3()
+    {
+        return clip3;
+    }
+
+
+
+
+    void Update()
 	{
-		audio.volume = PlayerPrefs.GetFloat("AudioVolume");
-
-		source = GetComponent<AudioSource>();
-	}
-
-	void Update()
-	{
-		/*CurrentWaitForNewPitchTime += Time.deltaTime;
+        
+        GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("AudioVolume");
+        /*CurrentWaitForNewPitchTime += Time.deltaTime;
 		if(CurrentWaitForNewPitchTime >= WaitForNewPitchTime)
 		{
 
@@ -31,5 +51,5 @@ public class AudioManager : MonoBehaviour
 		{
 			source.pitch = Mathf.MoveTowards(source.pitch, NewPitch, 0.7F);
 		}*/
-	}
+    }
 }

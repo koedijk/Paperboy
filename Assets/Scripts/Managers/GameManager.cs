@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
 		if(FindObjectOfType<DiscoSetting>().IsDisco)
 		{
 			Global.Instance.IsDisco = true;
-			Camera.main.gameObject.audio.clip = FindObjectOfType<DiscoSetting>().DiscoClip;
+			Camera.main.gameObject.GetComponent<AudioSource>().clip = FindObjectOfType<DiscoSetting>().DiscoClip;
 		}
 
 		ScoreMenu = FindObjectOfType<ScoreMenuHandlers>();
@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
 	{
 		if(Global.Instance.IsPlaying)
 		{
-			foreach(Layer layer in Layers)
+            foreach (Layer layer in Layers)
 			{
 				layer.UpdateLayer();
 			}
@@ -41,7 +41,8 @@ public class GameManager : MonoBehaviour
 			
 			Global.Instance.DistanceScore += (Global.Instance.Speed * Global.Instance.ComboMultiplier) * Time.deltaTime;
 
-			Global.Instance.Speed = Global.Instance.InitialSpeed + (Global.Instance.DistanceScore * 0.0075F);
+			Global.Instance.Speed = Global.Instance.InitialSpeed + (Global.Instance.DistanceScore * 0.01F);
+            //Debug.Log(Global.Instance.Speed);
 		}
 		else
 		{

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class MainMenuHandlers : MonoBehaviour 
 {	
@@ -21,19 +22,23 @@ public class MainMenuHandlers : MonoBehaviour
 	
 	private bool IsDisco = false;
 	
-	public Text HighscoreText;
+	public Text HighscoreText1;
+    public Text HighscoreText2;
+    public Text HighscoreText3;
 
-	void Start()
+    void Start()
 	{		
 		Anim = GetComponent<Animator>();
 
-		AudioSlider.value  = PlayerPrefs.GetFloat("AudioVolume");
-		Readonly = false;
+        AudioSlider.value  = PlayerPrefs.GetFloat("AudioVolume");
+        Readonly = false;
 
 		FindObjectOfType<DiscoSetting>().IsDisco = false;		
 		
-		HighscoreText.text = "Highscore: " + PlayerPrefs.GetInt("Highscore", 0);
-	}
+		HighscoreText1.text = "Highscore 1: " + PlayerPrefs.GetInt("Highscore", 0);
+        HighscoreText2.text = "Highscore 2: " + PlayerPrefs.GetInt("Highscore1", 0);
+        HighscoreText3.text = "Highscore 3: " + PlayerPrefs.GetInt("Highscore2", 0);
+    }
 
 	void Update()
 	{
@@ -64,8 +69,9 @@ public class MainMenuHandlers : MonoBehaviour
 	}
 	private void Play()
 	{
-		Application.LoadLevel("PlayScene");
-	}
+        SceneManager.LoadScene(1);
+
+    }
 
 	public void ChangeDisco()
 	{
@@ -74,13 +80,13 @@ public class MainMenuHandlers : MonoBehaviour
 		{
 			StartCoroutine(WaitForColorChange());
 
-			Camera.main.gameObject.audio.Play();
+			Camera.main.gameObject.GetComponent<AudioSource>().Play();
 		}
 		else
 		{
 			StopAllCoroutines();
 
-			Camera.main.gameObject.audio.Stop();
+			Camera.main.gameObject.GetComponent<AudioSource>().Stop();
 
 			foreach(Image bla in RainbowImages)
 			{

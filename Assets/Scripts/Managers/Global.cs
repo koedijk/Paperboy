@@ -19,13 +19,13 @@ public class Global
 		}
 	}
 
-	private float _speed = 1F;
+	private float _speed = 5F;
 	public float Speed
 	{
 		get { return _speed; }
 		set
 		{
-			_speed = Mathf.Clamp(value, 1, 12);
+			_speed = Mathf.Clamp(value,5, 12);
 		}
 	}
 	public float InitialSpeed;
@@ -44,10 +44,11 @@ public class Global
 	{
 		get
 		{
-			if(Dollars >= 5)
-				return (Dollars * 0.2F) * DistanceScore;
-			else
-				return DistanceScore;
+            if (Dollars >= 5)
+                return (Dollars * 0.2F) * DistanceScore;
+            else
+            return DistanceScore;
+
 		}
 	}
 
@@ -75,4 +76,5 @@ public class Global
 	{
 		IsPlaying = false;
 	}
+
 }

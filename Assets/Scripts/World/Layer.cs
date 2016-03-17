@@ -18,7 +18,7 @@ public class Layer : CacheMB
 
 		for(int i = 0; i < transform.childCount; ++i)
 		{
-			MaxDistance += new Vector2(transform.GetChild(i).renderer.bounds.size.x, transform.GetChild(i).renderer.bounds.size.y);
+			MaxDistance += new Vector2(transform.GetChild(i).GetComponent<Renderer>().bounds.size.x, transform.GetChild(i).GetComponent<Renderer>().bounds.size.y);
 		}
 
 		MaxDistance = MaxDistance / 2;
