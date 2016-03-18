@@ -14,6 +14,8 @@ Particle effect Houses,Player(ColaPickUp)
 House Change Spirte on Click
 Score wont show correctly
 Walk sound added.
+Deliverd good house sound.
+Bad house sound.
 
 
 --
