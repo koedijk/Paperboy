@@ -11,12 +11,15 @@ public class AudioManager : MonoBehaviour
     private AudioSource source;
     //Joey Clips for Sounds.
     public AudioClip clip1, clip2, clip3;
-
+    public GameObject Walksound;
 
     void Start () 
 	{ 
         GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("AudioVolume");
         source = GetComponent<AudioSource>();
+
+        Walksound.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("AudioVolume");
+        Debug.Log(Walksound.GetComponent<AudioSource>().volume);
     }
     //- Joey Koedijk Sounds for Good,BadHouse,Lose.
     public AudioClip sound1()
@@ -40,6 +43,7 @@ public class AudioManager : MonoBehaviour
 	{
         
         GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("AudioVolume");
+        Walksound.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("AudioVolume");
         /*CurrentWaitForNewPitchTime += Time.deltaTime;
 		if(CurrentWaitForNewPitchTime >= WaitForNewPitchTime)
 		{
