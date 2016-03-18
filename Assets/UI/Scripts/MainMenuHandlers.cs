@@ -34,7 +34,7 @@ public class MainMenuHandlers : MonoBehaviour
         Readonly = false;
 
 		FindObjectOfType<DiscoSetting>().IsDisco = false;		
-		
+		//Joey Koedijk Top 3 HighScore.
 		HighscoreText1.text = "Highscore 1: " + PlayerPrefs.GetInt("Highscore", 0);
         HighscoreText2.text = "Highscore 2: " + PlayerPrefs.GetInt("Highscore1", 0);
         HighscoreText3.text = "Highscore 3: " + PlayerPrefs.GetInt("Highscore2", 0);

@@ -71,6 +71,9 @@ public class HouseBehaviour : BasicObstacleBehaviour
             //If hitted a GoodHouse
 			Global.Instance.ComboMultiplier += 0.01F;
             GetComponent<Animator>().SetTrigger("Deliver");
+
+
+            //Joey Sprite Change and Particle system
             transform.FindChild("Sprite").GetComponent<SpriteRenderer>().sprite = GoodSpriteLight[randNewSprite];
             transform.FindChild("Particle System").GetComponent<ParticleSystem>().Play();
 
@@ -85,6 +88,8 @@ public class HouseBehaviour : BasicObstacleBehaviour
             //If hitted bad house
             //Sets ScoreMultiplier to 1x
 			Global.Instance.ComboMultiplier = 1F;
+
+
             transform.FindChild("Destroy").GetComponent<ParticleSystem>().Play();
             transform.FindChild("Sprite").GetComponent<SpriteRenderer>().sprite = BadSpriteLight[randNewSprite];
            

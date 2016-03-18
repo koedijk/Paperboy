@@ -42,6 +42,7 @@ public class Global
 
 	public float TotalScore
 	{
+        //Joey Corrected Score
 		get
 		{
             if (Dollars >= 5)
